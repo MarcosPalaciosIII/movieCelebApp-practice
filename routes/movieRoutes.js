@@ -37,7 +37,11 @@ router.get('/detail/:movieId', (req, res, next) => {
   //   res.redirect('/login');
   // }
 
-  Movie.findById(req.params.movieId)
+  // .populate will populate the field that you enter
+  // in order for it to work, the field has to be set up in the Schema as type Schema.Types.ObjectId and must reference the collection that it populate.
+  // it is a way of doing a find for the field without having to do nested .then's to have all the info available.
+  // * reference the movie model on line 18 for an example *
+  Movie.findById(req.params.movieId).populate('celeb')
   .then(movieDetail => {
     // let theMSG = false;
     // if(req.params.created === 'movieDetails') {

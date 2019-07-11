@@ -15,6 +15,8 @@ const moviebSchema = new Schema({
     type: String
   },
   celeb: {
+    // this is so that you can populate the info for the given collection from your database.
+    // * reference the example on movieRoutes.js on line 44 *
     type: Schema.Types.ObjectId, ref: "Celeb"
   }
 }, {
