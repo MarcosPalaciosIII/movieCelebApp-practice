@@ -41,6 +41,7 @@ router.get('/detail/:movieId', (req, res, next) => {
   // in order for it to work, the field has to be set up in the Schema as type Schema.Types.ObjectId and must reference the collection that it populate.
   // it is a way of doing a find for the field without having to do nested .then's to have all the info available.
   // * reference the movie model on line 18 for an example *
+  // you can see the outcome of this and how to display the populated field in /views/movies/details.hbs on line 9 - 12
   Movie.findById(req.params.movieId).populate('celeb')
   .then(movieDetail => {
     // let theMSG = false;
