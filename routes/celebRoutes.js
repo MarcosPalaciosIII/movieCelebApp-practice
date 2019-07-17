@@ -25,6 +25,7 @@ router.post('/create', (req, res, next) => {
 router.get('/list', (req, res, next) => {
   Celeb.find()
   .then(allCelebs => {
+    res.locals.theMsg = "You are viewing the list of Celebs!";
     res.render('celebs/list', {allCelebs});
   }).catch(err => next(err));
 });
